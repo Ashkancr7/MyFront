@@ -114,12 +114,12 @@ const Navbar = () => {
 
               {user ? (
                 <>
-                  <span className="text-sm text-gray-700">{user.nam  + " " + user.lname || "کاربر"}</span>
+                  <span className="text-sm text-gray-700">{user.nam + " " + user.lname || "کاربر"}</span>
                   <button
                     onClick={logout}
                     className="px-3 py-2 border border-red-400 rounded-md hover:bg-red-100 text-red-600 text-sm"
                   >
-                  خروج از حساب
+                    خروج از حساب
                   </button>
                 </>
               ) : (
@@ -143,10 +143,10 @@ const Navbar = () => {
           <a href="/" className="flex items-center">
             <img src={logo} alt="لوگو فروشگاه" className="h-10" />
           </a>
-          <button onClick={() => navigate('/cart')} className="p-2 text-gray-700 relative">
+          <button onClick={() => navigate('/checkout')} className="p-2 text-gray-700 relative">
             <FaShoppingCart size={18} />
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-              3
+              {totalItems}
             </span>
           </button>
         </div>
@@ -174,7 +174,7 @@ const Navbar = () => {
 
               {user ? (
                 <>
-                  <span className="block px-3 py-2 text-sm text-gray-700">{user.name || "کاربر"}</span>
+                  <span className="block px-3 py-2 text-sm text-gray-700">{user.nam + " " + user.lname || "کاربر"}</span>
                   <button
                     onClick={logout}
                     className="block w-full text-right px-3 py-2 text-red-600 hover:bg-gray-100 rounded"
