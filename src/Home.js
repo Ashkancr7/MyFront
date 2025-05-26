@@ -39,7 +39,7 @@ function Home() {
   }
 
   return (
-    <div className="App">
+    <div className="App max-w-screen-xl mx-auto px-4 text-right">
       <Navbar />
       <BannerSlider />
       <NewProduct />
