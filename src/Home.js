@@ -8,7 +8,7 @@ import ProductListChaild from '../src/product/ProductListChaild';
 import BannerSlider from './BannerSlider/BannerSlider';
 
 
-import { TailSpin, DNA, ThreeCircles } from 'react-loader-spinner';
+// import { TailSpin, DNA, ThreeCircles } from 'react-loader-spinner';
 
 
 
@@ -32,14 +32,8 @@ function Home() {
   if (isLoading) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
-        <DNA
-          visible={true}
-          height="150"
-          width="150"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper"
-        />
+       <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-900"></div>
+
       </div>
     );
   }
