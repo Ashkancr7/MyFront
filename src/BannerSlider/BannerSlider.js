@@ -16,7 +16,7 @@ const banners = [
 
 const BannerSlider = () => {
   return (
-    <div className="w-full  mx-auto mt-5">
+    <div className="mx-auto mt-5 overflow-x-hidden max-w-screen">
       <Swiper
         spaceBetween={10}
         slidesPerView={1}
