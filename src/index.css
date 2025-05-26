@@ -5,9 +5,9 @@
 
 body {
   font-family: 'Vazir', sans-serif;
-  /* align-items: center;
+  align-items: center;
   justify-content: center;
-  display: flex; */
+  display: flex;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
