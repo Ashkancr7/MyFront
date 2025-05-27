@@ -513,7 +513,7 @@ const DiscountProduct = () => {
 // کامپوننت کارت محصول با تغییرات برای صفحه حراج
 const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onClick }) => (
   <div 
-    className="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group relative"
+    className="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group relative max-w-sm mx-auto"
     onClick={() => onClick(product.id)}
   >
     {/* تگ‌های ویژه */}
@@ -536,7 +536,7 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
     </div>
     
     {/* بخش تصویر محصول */}
-    <div className="relative overflow-hidden h-60">
+    <div className="relative overflow-hidden h-40 sm:h-52 md:h-60">
       <img 
         src={product.image} 
         alt={product.name}
@@ -567,24 +567,24 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
     </div>
     
     {/* محتوای کارت */}
-    <div className="p-4">
+    <div className="p-3 sm:p-4">
       {/* عنوان و دسته‌بندی */}
-      <div className="mb-2">
-        <h3 className="font-medium text-gray-800 line-clamp-1">{product.name}</h3>
-        <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-500">{product.category}</span>
-          <span className="text-xs text-gray-500">{product.color}</span>
+      <div className="mb-1 sm:mb-2">
+        <h3 className="font-medium text-gray-800 line-clamp-1 text-sm sm:text-base">{product.name}</h3>
+        <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500">
+          <span>{product.category}</span>
+          <span>{product.color}</span>
         </div>
       </div>
       
       {/* امتیاز */}
-      <div className="flex items-center mb-2">
+      <div className="flex items-center mb-1 sm:mb-2">
         <div className="flex text-amber-400">
           {[...Array(5)].map((_, i) => (
             <FiStar 
               key={i} 
               className={`${i < Math.floor(product.rating) ? 'fill-current' : ''}`}
-              size={14}
+              size={12} // اندازه ستاره کمتر شده برای موبایل
             />
           ))}
         </div>
@@ -594,7 +594,7 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
       {/* قیمت */}
       <div className="flex items-center justify-between">
         <div className="text-right">
-          <span className="font-bold text-gray-900">
+          <span className="font-bold text-gray-900 text-sm sm:text-base">
             {product.price.toLocaleString()} تومان
           </span>
           {product.originalPrice && (
@@ -606,14 +606,14 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
         
         {/* سایزهای موجود */}
         {product.size && (
-          <div className="flex gap-1">
+          <div className="flex gap-1 text-xs sm:text-sm">
             {product.size.slice(0, 3).map(size => (
-              <span key={size} className="text-xs bg-gray-100 px-2 py-1 rounded">
+              <span key={size} className="bg-gray-100 px-2 py-1 rounded">
                 {size}
               </span>
             ))}
             {product.size.length > 3 && (
-              <span className="text-xs bg-gray-100 px-2 py-1 rounded">+{product.size.length - 3}</span>
+              <span className="bg-gray-100 px-2 py-1 rounded">+{product.size.length - 3}</span>
             )}
           </div>
         )}
@@ -625,13 +625,14 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
           e.stopPropagation();
           onAddToCart(product.id, e);
         }}
-        className="w-full mt-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity hidden group-hover:block"
+        className="w-full mt-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-lg text-xs sm:text-sm font-medium hover:opacity-90 transition-opacity hidden group-hover:block"
       >
         افزودن به سبد خرید
       </button>
     </div>
   </div>
 );
+
 
 // کامپوننت اسکلت بارگذاری (بدون تغییر)
 const ProductSkeleton = () => (

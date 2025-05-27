@@ -58,7 +58,7 @@ const BannerSlider = () => {
               <img
                 src={banner.image}
                 alt={`Banner ${banner.id}`}
-                className="w-full h-48 sm:h-64 md:h-80 lg:h-[400px] xl:h-[450px] object-cover cursor-pointer transition-transform duration-300 hover:scale-105"
+                className="w-full h-40 sm:h-52 md:h-64 lg:h-72 xl:h-80 object-cover cursor-pointer transition-transform duration-300 hover:scale-105"
               />
             </SwiperSlide>
           ))}
