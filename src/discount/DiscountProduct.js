@@ -512,43 +512,49 @@ const DiscountProduct = () => {
 
 // کامپوننت کارت محصول با تغییرات برای صفحه حراج
 const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onClick }) => (
-  <div 
-    className="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group relative max-w-sm mx-auto"
+  <div
+    className="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer group relative
+               max-w-xs mx-auto sm:max-w-sm md:max-w-md
+               transition-shadow duration-300 hover:shadow-xl"
     onClick={() => onClick(product.id)}
   >
     {/* تگ‌های ویژه */}
-    <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
+    <div className="absolute top-3 left-3 z-10 flex flex-col gap-1 sm:gap-2">
       {product.isNew && (
-        <span className="bg-emerald-500 text-white text-xs px-3 py-1 rounded-full shadow-md">
+        <span className="bg-emerald-500 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md">
           جدید
         </span>
       )}
       {product.discountPercent && (
-        <span className="bg-rose-500 text-white text-xs px-3 py-1 rounded-full shadow-md">
+        <span className="bg-rose-500 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md">
           %{product.discountPercent} تخفیف
         </span>
       )}
       {product.isBestSeller && (
-        <span className="bg-amber-500 text-white text-xs px-3 py-1 rounded-full shadow-md">
+        <span className="bg-amber-500 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md">
           پرفروش
         </span>
       )}
     </div>
-    
-    {/* بخش تصویر محصول */}
-    <div className="relative overflow-hidden h-40 sm:h-52 md:h-60">
-      <img 
-        src={product.image} 
+
+    {/* تصویر محصول */}
+    <div className="relative overflow-hidden h-48 sm:h-56 md:h-64">
+      <img
+        src={product.image}
         alt={product.name}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
       />
-      
+
       {/* دکمه‌های اکشن */}
       <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <button 
+        <button
           className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
-          onClick={(e) => onWishlistToggle(product.id, e)}
+          onClick={(e) => {
+            e.stopPropagation();
+            onWishlistToggle(product.id, e);
+          }}
+          aria-label="Toggle Wishlist"
         >
           {isWishlisted ? (
             <FaHeart className="text-rose-500" size={16} />
@@ -556,45 +562,49 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
             <FiHeart className="text-gray-600" size={16} />
           )}
         </button>
-        
-        <button 
+
+        <button
           className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
-          onClick={(e) => onAddToCart(product.id, e)}
+          onClick={(e) => {
+            e.stopPropagation();
+            onAddToCart(product.id, e);
+          }}
+          aria-label="Add to Cart"
         >
           <FiShoppingCart className="text-gray-600" size={16} />
         </button>
       </div>
     </div>
-    
+
     {/* محتوای کارت */}
-    <div className="p-3 sm:p-4">
+    <div className="p-4 sm:p-5">
       {/* عنوان و دسته‌بندی */}
-      <div className="mb-1 sm:mb-2">
-        <h3 className="font-medium text-gray-800 line-clamp-1 text-sm sm:text-base">{product.name}</h3>
-        <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500">
+      <div className="mb-3">
+        <h3 className="font-semibold text-gray-800 text-sm sm:text-base line-clamp-1">{product.name}</h3>
+        <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500 mt-1">
           <span>{product.category}</span>
           <span>{product.color}</span>
         </div>
       </div>
-      
+
       {/* امتیاز */}
-      <div className="flex items-center mb-1 sm:mb-2">
+      <div className="flex items-center mb-3">
         <div className="flex text-amber-400">
           {[...Array(5)].map((_, i) => (
-            <FiStar 
-              key={i} 
-              className={`${i < Math.floor(product.rating) ? 'fill-current' : ''}`}
-              size={12} // اندازه ستاره کمتر شده برای موبایل
+            <FiStar
+              key={i}
+              className={`${i < Math.floor(product.rating) ? 'fill-current text-amber-400' : 'text-gray-300'}`}
+              size={14}
             />
           ))}
         </div>
-        <span className="text-xs text-gray-500 mr-1">({product.rating})</span>
+        <span className="text-xs text-gray-500 mr-2">({product.rating})</span>
       </div>
-      
-      {/* قیمت */}
-      <div className="flex items-center justify-between">
+
+      {/* قیمت و سایزها */}
+      <div className="flex items-center justify-between flex-wrap gap-2">
         <div className="text-right">
-          <span className="font-bold text-gray-900 text-sm sm:text-base">
+          <span className="font-bold text-gray-900 text-base sm:text-lg">
             {product.price.toLocaleString()} تومان
           </span>
           {product.originalPrice && (
@@ -603,29 +613,33 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
             </span>
           )}
         </div>
-        
-        {/* سایزهای موجود */}
+
         {product.size && (
-          <div className="flex gap-1 text-xs sm:text-sm">
-            {product.size.slice(0, 3).map(size => (
-              <span key={size} className="bg-gray-100 px-2 py-1 rounded">
+          <div className="flex gap-1 flex-wrap max-w-[150px] sm:max-w-[180px]">
+            {product.size.slice(0, 3).map((size) => (
+              <span
+                key={size}
+                className="text-xs sm:text-sm bg-gray-100 px-2 py-1 rounded whitespace-nowrap"
+              >
                 {size}
               </span>
             ))}
             {product.size.length > 3 && (
-              <span className="bg-gray-100 px-2 py-1 rounded">+{product.size.length - 3}</span>
+              <span className="text-xs sm:text-sm bg-gray-100 px-2 py-1 rounded">
+                +{product.size.length - 3}
+              </span>
             )}
           </div>
         )}
       </div>
-      
+
       {/* دکمه افزودن به سبد خرید */}
       <button
         onClick={(e) => {
           e.stopPropagation();
           onAddToCart(product.id, e);
         }}
-        className="w-full mt-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-lg text-xs sm:text-sm font-medium hover:opacity-90 transition-opacity hidden group-hover:block"
+        className="w-full mt-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
       >
         افزودن به سبد خرید
       </button>
