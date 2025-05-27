@@ -5,13 +5,13 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // آیکون‌ها
 import banner1 from "../assets/banner.jpg";
-import banner2 from "../assets/banner.jpg";
+import banner2 from "../assets/banner1.png";
 import banner3 from "../assets/banner.jpg";
 
 const banners = [
-  { id: 1, image: banner1 },
+  { id: 1, image: banner2 },
   { id: 2, image: banner2 },
-  { id: 3, image: banner3 },
+  { id: 3, image: banner2 },
 ];
 
 const BannerSlider = () => {
