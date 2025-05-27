@@ -16,23 +16,27 @@ const banners = [
 
 const BannerSlider = () => {
   return (
-    <div className="w-full  mx-auto mt-5">
-      <Swiper
-        spaceBetween={10}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{ delay: 3000 }}
-        pagination={{ clickable: true }}
-        modules={[Pagination, Autoplay]}
-        className="rounded-lg shadow-2xl"
-      >
-        {banners.map((banner) => (
-          <SwiperSlide onClick={()=> console.log(banner.id)} key={banner.id}>
-            <img src={banner.image} alt={`Banner ${banner.id}`} className="w-full  object-contain rounded-lg cursor-pointer" />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+    <div className="w-full max-w-screen-xl mx-auto mt-5 px-2">
+    <Swiper
+      spaceBetween={10}
+      slidesPerView={1}
+      loop={true}
+      autoplay={{ delay: 3000 }}
+      pagination={{ clickable: true }}
+      modules={[Pagination, Autoplay]}
+      className="rounded-lg shadow-2xl"
+    >
+      {banners.map((banner) => (
+        <SwiperSlide key={banner.id} onClick={() => console.log(banner.id)}>
+          <img
+            src={banner.image}
+            alt={`Banner ${banner.id}`}
+            className="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg cursor-pointer"
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
   );
 };
 

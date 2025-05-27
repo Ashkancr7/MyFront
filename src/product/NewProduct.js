@@ -150,7 +150,7 @@ const NewProduct = () => {
     return (
 
         <div className="w-full overflow-x-auto px-2 custom-scrollbar">
-            <div className='flex flex-row align-center justify-center'>
+            <div className='flex flex-row align-center justify-center mt-10'>
 
                 <hr class="w-80 h-0.5 mt-5 ml-3 bg-black border-0 rounded-sm dark:bg-gray-700"></hr>
 
