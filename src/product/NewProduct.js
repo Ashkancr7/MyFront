@@ -154,14 +154,14 @@ const NewProduct = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="w-[calc(50%-8px)] sm:w-[calc(33.333%-10px)] md:w-[calc(25%-12px)] lg:w-[calc(20%-12px)]"
+              className="w-[calc(20%-8px)] sm:w-[calc(25%-10px)] md:w-[calc(20%-12px)] lg:w-[calc(16.666%-12px)]"
             >
               <DiscuntProductCard product={{ ...product, price: Number(product.price) }} />
             </div>
           ))}
       
           {/* دکمه مشاهده همه */}
-          <div className="w-[calc(50%-8px)] sm:w-[calc(33.333%-10px)] md:w-[calc(25%-12px)] lg:w-[calc(20%-12px)] flex items-center justify-center">
+          <div className="w-[calc(33.333%-8px)] sm:w-[calc(25%-10px)] md:w-[calc(20%-12px)] lg:w-[calc(16.666%-12px)] flex items-center justify-center">
             <button
               onClick={() => navigate('/DiscountProduct')}
               className="w-full h-full bg-white rounded shadow flex flex-col items-center justify-center hover:bg-gray-200 p-4"
