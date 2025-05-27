@@ -408,7 +408,7 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
         <img 
           src={product.image} 
           alt={product.name} 
-          className="w-full h-56 object-cover"
+        className="w-full h-40 sm:h-56 object-cover rounded-t-lg"
         />
         <button 
           onClick={(e) => onWishlistToggle(product.id, e)} 
