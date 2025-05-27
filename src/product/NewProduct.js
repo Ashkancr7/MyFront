@@ -151,40 +151,40 @@ const NewProduct = () => {
 
         <div className="w-full bg-gray-100 flex flex-col items-center mt-20">
         <div className="w-full px-4 py-10">
-          <div className='flex flex-row align-center justify-center'>
-            <hr className="w-80 h-0.5 mt-5 ml-3 bg-black border-0 rounded-sm dark:bg-gray-700" />
-            <h2 className="text-sm sm:text-base md:text-2xl font-semibold mb-6 text-center">تخفیفات طلایی</h2>
-            <hr className="w-80 h-0.5 mt-5 mr-3 bg-black border-0 rounded-sm dark:bg-gray-700" />
+          <div className="flex items-center justify-center mb-6">
+            <hr className="w-24 h-0.5 bg-black mx-3" />
+            <h2 className="text-sm sm:text-base md:text-2xl font-semibold">تخفیفات طلایی</h2>
+            <hr className="w-24 h-0.5 bg-black mx-3" />
           </div>
       
-          {/* ریسپانسیو: اسکرول افقی در موبایل، گرید در دسکتاپ */}
-          <div className="block sm:hidden w-full overflow-x-auto custom-scrollbar">
+          <div className="w-full overflow-x-auto px-2 custom-scrollbar">
             <div className="flex gap-4 w-max">
-              {products.slice(0, 5).map((product) => (
-                <DiscuntProductCard key={product.id} product={{ ...product, price: Number(product.price) }} />
+              {products.map((product) => (
+                <div
+                  key={product.id}
+                  className="min-w-[50%] sm:min-w-[33.3333%] md:min-w-[25%] lg:min-w-[20%]"
+                >
+                  <DiscuntProductCard product={{ ...product, price: Number(product.price) }} />
+                </div>
               ))}
+              
+              {/* دکمه "مشاهده همه" */}
+              <div className="min-w-[50%] sm:min-w-[33.3333%] md:min-w-[25%] lg:min-w-[20%] flex items-center justify-center">
+                <button
+                  onClick={() => navigate('/DiscountProduct')}
+                  className="w-full h-full bg-white rounded shadow flex flex-col items-center justify-center hover:bg-gray-200 p-4"
+                >
+                  <span>مشاهده همه</span>
+                  <svg className="w-4 h-4 mt-2 text-black" viewBox="0 0 8 14" fill="none">
+                    <path d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
             </div>
-          </div>
-      
-          <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-            {products.slice(0, 8).map((product) => (
-              <DiscuntProductCard key={product.id} product={{ ...product, price: Number(product.price) }} />
-            ))}
-          </div>
-      
-          <div className="flex justify-center mt-10">
-            <button
-              onClick={() => navigate('/DiscountProduct')}
-              className="flex items-center gap-2 px-4 py-2 rounded hover:bg-gray-300 text-sm bg-white border border-gray-300"
-            >
-              <span>مشاهده همه</span>
-              <svg className="w-4 h-4 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
+      
       
 
 
