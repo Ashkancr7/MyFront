@@ -149,38 +149,28 @@ const NewProduct = () => {
 
     return (
 
-        <div className="w-full bg-gray-100 flex flex-col items-center mt-20">
-        <div className="w-full px-4 py-10">
-          <div className="flex items-center justify-center mb-6">
-            <hr className="w-24 h-0.5 bg-black mx-3" />
-            <h2 className="text-sm sm:text-base md:text-2xl font-semibold">تخفیفات طلایی</h2>
-            <hr className="w-24 h-0.5 bg-black mx-3" />
-          </div>
-      
-          <div className="w-full overflow-x-auto px-2 custom-scrollbar">
-            <div className="flex gap-4 w-max">
-              {products.map((product) => (
-                <div
-                  key={product.id}
-                  className="min-w-[50%] sm:min-w-[33.3333%] md:min-w-[25%] lg:min-w-[20%]"
-                >
-                  <DiscuntProductCard product={{ ...product, price: Number(product.price) }} />
-                </div>
-              ))}
-              
-              {/* دکمه "مشاهده همه" */}
-              <div className="min-w-[50%] sm:min-w-[33.3333%] md:min-w-[25%] lg:min-w-[20%] flex items-center justify-center">
-                <button
-                  onClick={() => navigate('/DiscountProduct')}
-                  className="w-full h-full bg-white rounded shadow flex flex-col items-center justify-center hover:bg-gray-200 p-4"
-                >
-                  <span>مشاهده همه</span>
-                  <svg className="w-4 h-4 mt-2 text-black" viewBox="0 0 8 14" fill="none">
-                    <path d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
-              </div>
+        <div className="w-full overflow-x-auto px-2 custom-scrollbar">
+        <div className="flex gap-4 w-max">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="w-[calc(50%-8px)] sm:w-[calc(33.333%-10px)] md:w-[calc(25%-12px)] lg:w-[calc(20%-12px)]"
+            >
+              <DiscuntProductCard product={{ ...product, price: Number(product.price) }} />
             </div>
+          ))}
+      
+          {/* دکمه مشاهده همه */}
+          <div className="w-[calc(50%-8px)] sm:w-[calc(33.333%-10px)] md:w-[calc(25%-12px)] lg:w-[calc(20%-12px)] flex items-center justify-center">
+            <button
+              onClick={() => navigate('/DiscountProduct')}
+              className="w-full h-full bg-white rounded shadow flex flex-col items-center justify-center hover:bg-gray-200 p-4"
+            >
+              <span>مشاهده همه</span>
+              <svg className="w-4 h-4 mt-2 text-black" viewBox="0 0 8 14" fill="none">
+                <path d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
