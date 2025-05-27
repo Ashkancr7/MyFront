@@ -404,7 +404,7 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
       className="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition"
       onClick={() => onClick(product.id)}
     >
-      <div className="relative">
+      <div className="relative"> 
         <img 
           src={product.image} 
           alt={product.name} 
