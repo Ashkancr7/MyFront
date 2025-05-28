@@ -375,7 +375,7 @@ const KidsProducts = () => {
                                 </button>
                             </div>
                         ) : (
-                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 {filteredProducts.map(product => (
                                     <ProductCard
                                         key={product.id}
@@ -406,7 +406,7 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
                 <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-56 object-cover"
+                      className="w-full h-40 sm:h-56 object-cover rounded-t-lg"
                 />
                 <button
                     onClick={(e) => onWishlistToggle(product.id, e)}

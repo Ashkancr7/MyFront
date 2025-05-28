@@ -11,9 +11,9 @@ const DiscuntProductCard = ({ product }) => {
         state={{ product }} // ارسال اطلاعات محصول از طریق state
       >
         {/* درصد تخفیف */}
-        <div className="absolute flex items-center justify-center leading-none rounded-b-lg bg-[#f7de06] w-7 h-8 top-0 right-1 text-xs font-bold shadow-lg ">
-          %{Number(product.discount).toLocaleString("fa-IR")}
-        </div>
+        <div className=" flex items-center justify-center leading-none rounded-b-lg bg-[#f7de06] w-7 h-8 top-0 right-1 text-xs font-bold shadow-lg ">
+        {`%${Number(product.discount).toLocaleString("fa-IR")}`}
+      </div>
 
         {/* تصاویر */}
         <div className="relative w-full h-[180px]">

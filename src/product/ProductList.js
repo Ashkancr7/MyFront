@@ -42,7 +42,7 @@ const ProductList = () => {
                         className="w-[calc(20%-8px)] sm:w-[calc(25%-10px)] md:w-[calc(20%-12px)] lg:w-[calc(16.666%-12px)]"
                     >
                         <ProductCard product={{ ...product, price: Number(product.price) }} />
-                    </div>
+                    </div> 
                 ))}
 
                 {/* دکمه مشاهده همه */}

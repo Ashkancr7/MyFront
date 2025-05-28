@@ -161,7 +161,7 @@ const NewProduct = () => {
             </div >
             <div className="w-full overflow-x-auto px-2 custom-scrollbar">
 
-                <div className="flex gap-4 w-max">
+                <div className="flex gap-4 w-max"> 
                     {products.map((product) => (
                         <div
                             key={product.id}
