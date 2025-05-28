@@ -12,8 +12,8 @@ const ProductCard = ({ product }) => {
   return (
     <div 
     className="
-      relative shadow-2xl rounded-lg overflow-hidden 
-      w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] 
+      relative bg-red-200 shadow-2xl rounded-lg overflow-hidden 
+      w-full max-w-[200px] sm:max-w-[280px] md:max-w-[330px] 
       text-right cursor-pointer hover:shadow-xl transition-all 
       group mb-6 sm:mb-10
     "
