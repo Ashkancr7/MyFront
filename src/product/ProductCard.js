@@ -10,7 +10,8 @@ const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
 
   return (
-    <div className="bg-white shadow-2xl rounded-lg overflow-hidden w-[48%] sm:w-[48%] md:w-48 text-right cursor-pointer hover:shadow-xl transition-all group mb-4">
+    <div className="bg-white shadow-2xl rounded-lg overflow-hidden w-full sm:w-[48%] md:w-60 text-right cursor-pointer hover:shadow-xl transition-all group mb-4">
+
 
     {/* عکس محصول */}
     <div className="relative w-full h-40">
