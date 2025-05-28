@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const DiscuntProductCard = ({ product }) => {
   return (
-    <div className="relative bg-white shadow-2xl rounded-lg overflow-hidden w-full max-w-[200px] text-right cursor-pointer hover:shadow-xl transition-all group mb-6 sm:mb-10">
+    <div className="relative  shadow-2xl rounded-lg overflow-hidden w-full max-w-[200px] text-right cursor-pointer hover:shadow-xl transition-all group mb-6 sm:mb-10">
       <Link 
         key={product.id} 
         to="/product" 

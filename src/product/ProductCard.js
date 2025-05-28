@@ -10,15 +10,8 @@ const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
 
   return (
-    <div 
-    className="
-      relative bg-red-200 shadow-2xl rounded-lg overflow-hidden 
-      w-full max-w-[200px] sm:max-w-[280px] md:max-w-[330px] 
-      text-right cursor-pointer hover:shadow-xl transition-all 
-      group mb-6 sm:mb-10
-    "
-    // onClick={() => navigate(`/product/${product._id}`)}
-  >
+    <div className="relative shadow-2xl rounded-lg overflow-hidden w-full max-w-[180px] text-right cursor-pointer hover:shadow-xl transition-all group mb-6 sm:mb-10">
+
     <div className="relative w-full h-[150px] sm:h-[180px] md:h-[220px]">
       <img
         src={product.image}
@@ -43,13 +36,13 @@ const ProductCard = ({ product }) => {
         {product.description.toLocaleString("fa-IR")}
       </span>
   
-      <div className="flex justify-between items-center mt-2">
+      <div className="flex justify-center items-center mt-2">
         <button 
           onClick={(e) => {
             e.stopPropagation();
             addToCart(product);
           }}
-          className="text-gray-600 hover:text-blue-600 text-base sm:text-lg"
+          className="text-gray-600 ml-10 hover:text-blue-600 text-base sm:text-lg"
           title="افزودن به سبد خرید"
         >
           <FiShoppingCart />
