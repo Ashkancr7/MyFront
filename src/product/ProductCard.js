@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
   return (
     <div 
     className="
-      relative bg-white shadow-2xl rounded-lg overflow-hidden 
+      relative shadow-2xl rounded-lg overflow-hidden 
       w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] 
       text-right cursor-pointer hover:shadow-xl transition-all 
       group mb-6 sm:mb-10
@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
       />
     </div>
   
-    <div className="p-3 bg-gray-100 h-auto sm:h-40 flex flex-col justify-between">
+    <div className="p-3  h-auto sm:h-40 flex flex-col justify-between">
       <h3 className="text-xs sm:text-sm md:text-base font-semibold text-gray-800 text-center">
         {product.name}
       </h3>

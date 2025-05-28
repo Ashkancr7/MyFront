@@ -25,9 +25,9 @@ const ProductList = () => {
                 <hr class="w-80 h-0.5 mt-5 mr-3 bg-black border-0 rounded-sm dark:bg-gray-700"></hr>
 
             </div >
-            <div className="w-full overflow-x-auto px-4">
+            <div className="w-full  overflow-x-auto px-2">
 
-                <div className="flex gap-4 w-max">
+                <div className="flex gap-4 w-max ">
                     {products.map(product => (
                         <div
                             key={product._id || product.id}
