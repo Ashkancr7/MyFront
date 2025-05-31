@@ -81,7 +81,7 @@ const Navbar = () => {
 
 
           {/* سمت چپ: جستجو، سبد خرید، ورود */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 mr-10">
             <form onSubmit={handleSearch} className="relative ml-2">
               <input
                 type="text"
@@ -95,7 +95,7 @@ const Navbar = () => {
               </button>
             </form>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <button onClick={() => navigate('/checkout')} className="p-2 text-gray-700 hover:text-gray-900 relative">
                 <FaShoppingCart size={18} />
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -120,14 +120,14 @@ const Navbar = () => {
 
           </div>
           {/* بخش سمت راست (منو) */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6">
             <a href="/" className="hover:text-gray-900">خانه</a>
             <a href="/products" className="hover:text-gray-900">محصولات</a>
             <DropdownMenu categories={menCategories} title="مردانه" />
             <DropdownMenu categories={womenCategories} title="زنانه" />
             <a href="/kidsproducts" className="hover:text-gray-900">بچگانه</a>
-            <a href="/about" className="hover:text-gray-900">درباره ما</a>
-            <a href="/PayButton" className="hover:text-gray-900">تماس با ما</a>
+            <a href="/about" className="hover:text-gray-900 text-base lg:text-sm">درباره ما</a>
+            <a href="/PayButton" className="hover:text-gray-900 text-base lg:text-sm">تماس با ما</a>
           </div>
 
           <a href="/" className="flex items-center">
