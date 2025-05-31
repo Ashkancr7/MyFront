@@ -75,7 +75,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         {/* دسکتاپ */}
         <div className="hidden md:flex items-center">
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-reverse">
             <a href="/" className="flex items-center">
               <img src={logo} alt="لوگو فروشگاه" className="h-10" />
             </a>
