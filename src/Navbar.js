@@ -74,24 +74,15 @@ const Navbar = () => {
     <nav ref={navbarRef} className={`sticky top-0 z-10 bg-white shadow-sm transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
       <div className="container mx-auto px-4">
         {/* دسکتاپ */}
-        <div className="hidden md:flex items-center">
-          <div className="flex items-center space-x-reverse">
-            <a href="/" className="flex items-center">
-              <img src={logo} alt="لوگو فروشگاه" className="h-10" />
-            </a>
-            <div className="flex items-center space-x-6">
-              <a href="/" className="hover:text-gray-900">خانه</a>
-              <a href="/products" style={{ marginRight: 15 }} className=" hover:text-gray-900 ">محصولات</a>
-              <DropdownMenu categories={menCategories} title="مردانه" />
-              <DropdownMenu categories={womenCategories} title="زنانه" />
-              <a href="/kidsproducts" className="hover:text-gray-900">بچگانه</a>
-              <a href="/about" className="hover:text-gray-900">درباره ما</a>
-              <a href="/PayButton" className="hover:text-gray-900">تماس با ما</a>
-            </div>
-          </div>
+        <div className="hidden md:flex items-center justify-between flex-row-reverse w-full">
 
-          <div className="flex items-center space-x-4 ">
-            <form onSubmit={handleSearch} className="relative ml-5">
+
+          {/* لوگو */}
+
+
+          {/* سمت چپ: جستجو، سبد خرید، ورود */}
+          <div className="flex items-center gap-4">
+            <form onSubmit={handleSearch} className="relative ml-2">
               <input
                 type="text"
                 placeholder="جستجو..."
@@ -104,7 +95,7 @@ const Navbar = () => {
               </button>
             </form>
 
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center gap-3">
               <button onClick={() => navigate('/checkout')} className="p-2 text-gray-700 hover:text-gray-900 relative">
                 <FaShoppingCart size={18} />
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -113,29 +104,35 @@ const Navbar = () => {
               </button>
 
               <button
-                onClick={() => {user ? logout() :navigate('/login')} }
-                className="flex items-center  border border-gray-300 rounded-md hover:bg-gray-100"
+                onClick={() => { user ? logout() : navigate('/login') }}
+                className="flex items-center border border-gray-300 rounded-md hover:bg-gray-100 px-3 py-2 text-sm text-gray-700 gap-2"
               >
-                {
-                  user ? (
-                   <>
-                  <span className="block px-3 py-2 text-sm text-gray-700">{user.nam + " " + user.lname || "کاربر"}</span>
-                 
-                </>
-                  ) : (
-                    <>
-                      <FaUser size={14} />
-                      <span>ورود / ثبت‌نام</span>
-                    </>
-                  )
-                }
-
-              </button
-
-              >
-
+                {user ? (
+                  <span>{user.nam + " " + user.lname || "کاربر"}</span>
+                ) : (
+                  <>
+                    <FaUser size={14} />
+                    <span>ورود / ثبت‌نام</span>
+                  </>
+                )}
+              </button>
             </div>
+
           </div>
+          {/* بخش سمت راست (منو) */}
+          <div className="flex items-center gap-6">
+            <a href="/" className="hover:text-gray-900">خانه</a>
+            <a href="/products" className="hover:text-gray-900">محصولات</a>
+            <DropdownMenu categories={menCategories} title="مردانه" />
+            <DropdownMenu categories={womenCategories} title="زنانه" />
+            <a href="/kidsproducts" className="hover:text-gray-900">بچگانه</a>
+            <a href="/about" className="hover:text-gray-900">درباره ما</a>
+            <a href="/PayButton" className="hover:text-gray-900">تماس با ما</a>
+          </div>
+
+          <a href="/" className="flex items-center">
+            <img src={logo} alt="لوگو فروشگاه" className="h-10" />
+          </a>
         </div>
 
         {/* موبایل */}
