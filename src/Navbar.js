@@ -79,7 +79,7 @@ const Navbar = () => {
           
 
           {/* بخش سمت راست (منو) */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             
             <img src={logo} alt="لوگو فروشگاه" className="h-10" />
           
