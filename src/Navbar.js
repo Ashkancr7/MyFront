@@ -74,7 +74,7 @@ const Navbar = () => {
     <nav ref={navbarRef} className={`sticky top-0 z-10 bg-white shadow-sm transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
       <div className="container mx-auto px-4">
         {/* دسکتاپ */}
-        <div className="hidden md:flex items-center justify-between">
+        <div className="hidden md:flex items-center">
           <div className="flex items-center space-x-8">
             <a href="/" className="flex items-center">
               <img src={logo} alt="لوگو فروشگاه" className="h-10" />
@@ -112,7 +112,7 @@ const Navbar = () => {
                 </span>
               </button>
 
-              {/* {user ? (
+              {user ? (
                 <>
                   <span className="text-sm text-gray-700">{user.nam + " " + user.lname || "کاربر"}</span>
                   <button
@@ -130,7 +130,7 @@ const Navbar = () => {
                   <FaUser size={14} />
                   <span>ورود / ثبت‌نام</span>
                 </button>
-              )} */}
+              )}
             </div>
           </div>
         </div>
