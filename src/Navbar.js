@@ -72,12 +72,26 @@ const Navbar = () => {
 
   return (
     <nav ref={navbarRef} className={`sticky top-0 z-10 bg-white shadow-sm transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
-      <div className="container mx-auto px-4">
+      <div className="w-full max-w-full mx-auto px-4">
         {/* دسکتاپ */}
-        <div className="hidden md:flex items-center justify-between flex-row-reverse w-full">
+        <div className="hidden md:grid grid-cols-2 items-center w-full">
 
+          
 
-          {/* لوگو */}
+          {/* بخش سمت راست (منو) */}
+          <div className="flex items-center gap-6">
+            
+            <img src={logo} alt="لوگو فروشگاه" className="h-10" />
+          
+            <a href="/" className="hover:text-gray-900">خانه</a>
+            <a href="/products" className="hover:text-gray-900">محصولات</a>
+            <DropdownMenu categories={menCategories} title="مردانه" />
+            <DropdownMenu categories={womenCategories} title="زنانه" />
+            <a href="/kidsproducts" className="hover:text-gray-900">بچگانه</a>
+            <a href="/about" className="hover:text-gray-900 text-base lg:text-sm">درباره ما</a>
+            <a href="/PayButton" className="hover:text-gray-900 text-base lg:text-sm">تماس با ما</a>
+          </div>
+
 
 
           {/* سمت چپ: جستجو، سبد خرید، ورود */}
@@ -119,20 +133,9 @@ const Navbar = () => {
             </div>
 
           </div>
-          {/* بخش سمت راست (منو) */}
-          <div className="flex items-center gap-6">
-            <a href="/" className="hover:text-gray-900">خانه</a>
-            <a href="/products" className="hover:text-gray-900">محصولات</a>
-            <DropdownMenu categories={menCategories} title="مردانه" />
-            <DropdownMenu categories={womenCategories} title="زنانه" />
-            <a href="/kidsproducts" className="hover:text-gray-900">بچگانه</a>
-            <a href="/about" className="hover:text-gray-900 text-base lg:text-sm">درباره ما</a>
-            <a href="/PayButton" className="hover:text-gray-900 text-base lg:text-sm">تماس با ما</a>
-          </div>
 
-          <a href="/" className="flex items-center">
-            <img src={logo} alt="لوگو فروشگاه" className="h-10" />
-          </a>
+
+
         </div>
 
         {/* موبایل */}
