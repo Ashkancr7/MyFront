@@ -83,13 +83,13 @@ const Navbar = () => {
             
             <img src={logo} alt="لوگو فروشگاه" className="h-10" />
           
-            <a href="/" className="hover:text-gray-900">خانه</a>
-            <a href="/products" className="hover:text-gray-900">محصولات</a>
+            <a href="/" className="hover:text-gray-900  lg:text-sm">خانه</a>
+            <a href="/products" className="hover:text-gray-900  lg:text-sm">محصولات</a>
             <DropdownMenu categories={menCategories} title="مردانه" />
             <DropdownMenu categories={womenCategories} title="زنانه" />
             <a href="/kidsproducts" className="hover:text-gray-900">بچگانه</a>
-            <a href="/about" className="hover:text-gray-900 text-base lg:text-sm">درباره ما</a>
-            <a href="/PayButton" className="hover:text-gray-900 text-base lg:text-sm">تماس با ما</a>
+            <a href="/about" className="hover:text-gray-900  lg:text-sm">درباره ما</a>
+            <a href="/PayButton" className="hover:text-gray-900  lg:text-sm">تماس با ما</a>
           </div>
 
 
