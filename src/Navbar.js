@@ -112,7 +112,7 @@ const Navbar = () => {
                 </span>
               </button>
 
-              {user ? (
+              {/* {user ? (
                 <>
                   <span className="text-sm text-gray-700">{user.nam + " " + user.lname || "کاربر"}</span>
                   <button
@@ -130,7 +130,7 @@ const Navbar = () => {
                   <FaUser size={14} />
                   <span>ورود / ثبت‌نام</span>
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         </div>
