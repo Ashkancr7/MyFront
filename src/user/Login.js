@@ -70,14 +70,10 @@ function Login() {
           confirmButtonColor: '#4CAF50',
           confirmButtonText: 'ادامه',
           background: '#f9f9f9',
-          width: isMobile ? '50%' : '400px',
-          // customClass: {
-          //   popup: 'ios-swal-popup',
-          //   title: 'ios-swal-title',
-          //   content: 'ios-swal-content',
-          //   confirmButton: 'ios-swal-confirm-btn',
-          //   icon: 'ios-swal-icon'
-          // },
+          width: isMobile ? '90%' : '400px',
+          customClass: {
+            popup: 'my-swal-popup-mobile',
+          },
           color: '#333',
           // timer: 4000,
           // timerProgressBar: true,

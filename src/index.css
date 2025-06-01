@@ -38,3 +38,10 @@ code {
   background: #555555; /* رنگ هنگام هاور */
 }
 
+.my-swal-popup-mobile {
+  width: 90% !important;
+  max-height: 70vh !important;
+  overflow-y: auto !important;
+  font-size: 14px !important;
+  padding: 1rem !important;
+}
