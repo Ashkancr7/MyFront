@@ -70,6 +70,7 @@ function Login() {
           confirmButtonColor: '#4CAF50',
           confirmButtonText: 'ادامه',
           background: '#f9f9f9',
+           width: isMobile ? '90%' : '400px',
           color: '#333',
           // timer: 4000,
           // timerProgressBar: true,

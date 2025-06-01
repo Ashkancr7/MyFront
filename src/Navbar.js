@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import { FaShoppingCart, FaUser, FaSearch, FaBars, FaTimes } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from './context/UserContext';
-import logo from './assets/logo.jpg';
+import logo from './assets/logo.png';
 
 import { useCart } from './context/CartContext';
 
