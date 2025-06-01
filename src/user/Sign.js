@@ -92,7 +92,7 @@ function Sign() {
 
         if (response.ok) {
           const result = await Swal.fire({
-            title: '✅ ثبت نام موفق!',
+            title: 'ثبت نام موفق!',
             text: `خوش آمدید`,
             icon: 'success',
             showConfirmButton: true,
@@ -100,10 +100,10 @@ function Sign() {
             confirmButtonText: 'صفحه ورود',
             background: '#f9f9f9',
             color: '#333',
-          width: isMobile ? '90%' : '400px',
-           customClass: {
-    popup: 'my-swal-popup-mobile',
-  },
+            width: isMobile ? '90%' : '400px',
+            customClass: {
+              popup: 'my-swal-popup-mobile',
+            },
 
             // timer: 4000,
             // timerProgressBar: true,
@@ -111,7 +111,7 @@ function Sign() {
           if (result.isConfirmed) {
             window.location.href = "/login";
           }
-         
+
         } else {
           alert(data.message || "خطا در ثبت‌نام!");
         }

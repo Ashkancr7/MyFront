@@ -63,7 +63,7 @@ function Login() {
 
         // رفتن به صفحه اصلی
         const result = await Swal.fire({
-          title: '✅ ورود موفق!',
+          title: 'ورود موفق!',
           text: `به فروشگاه Somekan خوش آمدید`,
           icon: 'success',
           showConfirmButton: true,
