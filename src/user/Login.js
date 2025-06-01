@@ -52,8 +52,8 @@ function Login() {
 
         const { token, user } = response.data;
 
-        console.log('token',token);
-        
+        console.log('token', token);
+
 
         // ذخیره توکن در localStorage
         localStorage.setItem("token", token);
@@ -64,20 +64,27 @@ function Login() {
         // رفتن به صفحه اصلی
         const result = await Swal.fire({
           title: '✅ ورود موفق!',
-          text: `خوش آمدید`,
+          text: `به فروشگاه Somekan خوش آمدید`,
           icon: 'success',
           showConfirmButton: true,
           confirmButtonColor: '#4CAF50',
           confirmButtonText: 'ادامه',
           background: '#f9f9f9',
-           width: isMobile ? '90%' : '400px',
+          width: isMobile ? '50%' : '400px',
+          // customClass: {
+          //   popup: 'ios-swal-popup',
+          //   title: 'ios-swal-title',
+          //   content: 'ios-swal-content',
+          //   confirmButton: 'ios-swal-confirm-btn',
+          //   icon: 'ios-swal-icon'
+          // },
           color: '#333',
           // timer: 4000,
           // timerProgressBar: true,
         });
         if (result.isConfirmed) {
           // navigate('/'); // انتقال به صفحه اصلی
-          window.location.href ="/"
+          window.location.href = "/"
         }
         // navigate("/");
 

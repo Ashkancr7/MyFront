@@ -100,6 +100,8 @@ function Sign() {
             confirmButtonText: 'صفحه ورود',
             background: '#f9f9f9',
             color: '#333',
+          width: isMobile ? '50%' : '400px',
+
             // timer: 4000,
             // timerProgressBar: true,
           });
