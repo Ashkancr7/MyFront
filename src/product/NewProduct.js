@@ -175,10 +175,10 @@ const NewProduct = () => {
                     <div className="w-[calc(33.333%-8px)] sm:w-[calc(25%-10px)] md:w-[calc(20%-12px)] lg:w-[calc(16.666%-12px)] flex items-center justify-center">
                         <button
                             onClick={() => navigate('/DiscountProduct')}
-                            className="w-full h-full bg-white rounded shadow flex flex-col items-center justify-center hover:bg-gray-200 p-4"
+                            className="w-full h-10 bg-white rounded shadow flex flex-row items-center justify-center hover:bg-gray-200 p-4"
                         >
                             <span>مشاهده همه</span>
-                            <svg className="w-4 h-4 mt-2 text-black" viewBox="0 0 8 14" fill="none">
+                            <svg className="w-3 h-3 mt-2 text-black mb-2" viewBox="0 0 8 14" fill="none">
                                 <path d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </button>

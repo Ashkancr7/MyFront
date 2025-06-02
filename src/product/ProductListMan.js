@@ -48,17 +48,17 @@ const ProductListMan = () => {
                 ))}
 
                 {/* دکمه مشاهده همه */}
-                <div
-                    className="min-w-[160px] sm:min-w-[180px] md:min-w-[200px] flex items-center justify-center border rounded shadow p-4 cursor-pointer hover:bg-gray-200"
-                    onClick={() => navigate('/WomanProducts')}
-                >
-                    <div className="text-center">
-                        <span className="block mb-2">مشاهده همه</span>
-                        <svg className="w-6 h-6 mx-auto text-black" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 1L1.3 6.326a.91.91 0 0 0 0 1.348L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                <div className="w-[calc(33.333%-8px)] sm:w-[calc(25%-10px)] md:w-[calc(20%-12px)] lg:w-[calc(16.666%-12px)] flex items-center justify-center">
+                        <button
+                            onClick={() => navigate('/manProducts')}
+                            className="w-full h-10 bg-white rounded shadow flex flex-row items-center justify-center hover:bg-gray-200 p-4"
+                        >
+                            <span>مشاهده همه</span>
+                            <svg className="w-3 h-3 mt-2 text-black mb-2" viewBox="0 0 8 14" fill="none">
+                                <path d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
                     </div>
-                </div>
             </div>
         </div>
     </div>

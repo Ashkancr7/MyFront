@@ -71,7 +71,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav ref={navbarRef} className={`sticky top-0 z-10 bg-white-900 shadow-sm transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
+    <nav ref={navbarRef} className={`sticky top-0 z-10 bg-white shadow-sm transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
       <div className="w-full max-w-full mx-auto px-4">
         {/* دسکتاپ */}
         <div className="hidden md:grid grid-cols-2 items-center w-full">

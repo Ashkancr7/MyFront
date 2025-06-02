@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
 
   return (
-    <div className="relative shadow-2xl rounded-lg overflow-hidden w-full max-w-[180px] text-right cursor-pointer hover:shadow-xl transition-all group mb-6 sm:mb-10">
+    <div className="relative shadow-2xl rounded-lg overflow-hidden w-full h-80 max-w-[180px] text-right cursor-pointer hover:shadow-xl transition-all group mb-6 sm:mb-10">
 
     <div className="relative w-full h-[150px] sm:h-[180px] md:h-[220px]">
       <img
@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
       />
     </div>
   
-    <div className="p-3  h-auto sm:h-40 flex flex-col justify-between">
+    <div className="p-3  h-auto sm:h-40 flex flex-col">
       <h3 className="text-xs sm:text-sm md:text-base font-semibold text-gray-800 text-center">
         {product.name}
       </h3>
@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
         {product.description.toLocaleString("fa-IR")}
       </span>
   
-      <div className="flex justify-center items-center mt-2">
+      <div className="flex justify-center items-center mt-2 gap-2">
         <button 
           onClick={(e) => {
             e.stopPropagation();

@@ -32,16 +32,18 @@ const DiscuntProductCard = ({ product }) => {
         </div>
 
         {/* اطلاعات محصول */}
-        <div className="p-3 bg-gray-100 h-40 flex flex-col justify-between">
+        <div className="p-3 bg-gray-100 h-24 flex flex-col justify-between">
           <h3 className="text-sm sm:text-base font-semibold text-gray-800 text-center line-clamp-2">
             {product.title}
           </h3>
+          <div className="flex items-center gap-2 justify-between">
           <span className="text-gray-900 font-semibold text-center line-through text-sm">
-            {Number(product.originalPrice).toLocaleString("fa-IR")}
+            {Number(product.originalPrice).toLocaleString("fa-IR")}تومان
           </span>
           <span className="text-gray-900 font-semibold text-center text-sm">
-            {Number(product.price).toLocaleString("fa-IR")}
+            {Number(product.price).toLocaleString("fa-IR")}تومان
           </span>
+          </div>
         </div>
       </Link>
     </div>
