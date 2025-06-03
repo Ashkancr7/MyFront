@@ -70,7 +70,7 @@ function Login() {
           confirmButtonColor: '#4CAF50',
           confirmButtonText: 'ادامه',
           background: '#f9f9f9',
-          width: isMobile ? '90%' : '200px',
+          width: isMobile ? '90%' : '10%',
           customClass: {
             popup: 'my-swal-popup-mobile',
           },
