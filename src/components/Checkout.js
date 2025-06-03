@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { FiShoppingCart, FiArrowLeft, FiCreditCard, FiTruck, FiCheckCircle, FiInfo } from 'react-icons/fi';
 import { FaTrashAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -26,7 +26,7 @@ const Checkout = () => {
   const [postCode, setPostCode] = useState('');
   const [province, setProvince] = useState(null);
 
-   useEffect(() => {
+  useEffect(() => {
     const savedData = localStorage.getItem('checkoutUserData');
     if (savedData) {
       const userData = JSON.parse(savedData);
@@ -50,26 +50,26 @@ const Checkout = () => {
   }, []);
 
   // Save data to localStorage on change
- 
 
-useEffect(() => {
-  // بررسی وجود حداقل یک مقدار غیر خالی برای ذخیره
-  const shouldSave = name || lname || phone || email || selectedStateId || selectedCity || address || postCode;
 
-  if (shouldSave) {
-    const userData = {
-      name,
-      lname,
-      phone,
-      email,
-      selectedStateId,
-      selectedCity,
-      address,
-      postCode,
-    };
-    localStorage.setItem('checkoutUserData', JSON.stringify(userData));
-  }
-}, [name, lname, phone, email, selectedStateId, selectedCity, address, postCode]);
+  useEffect(() => {
+    // بررسی وجود حداقل یک مقدار غیر خالی برای ذخیره
+    const shouldSave = name || lname || phone || email || selectedStateId || selectedCity || address || postCode;
+
+    if (shouldSave) {
+      const userData = {
+        name,
+        lname,
+        phone,
+        email,
+        selectedStateId,
+        selectedCity,
+        address,
+        postCode,
+      };
+      localStorage.setItem('checkoutUserData', JSON.stringify(userData));
+    }
+  }, [name, lname, phone, email, selectedStateId, selectedCity, address, postCode]);
 
   const isFormValid =
     name.trim() &&
@@ -88,6 +88,32 @@ useEffect(() => {
       setCartItems(JSON.parse(cartJSON));
     }
   }, []);
+
+  const increaseQuantity = (id) => {
+    const updatedCart = cartItems.map(item => {
+      if (item._id === id) {
+        return { ...item, quantity: item.quantity + 1 };
+      }
+      return item;
+    });
+    setCartItems(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  };
+
+  const decreaseQuantity = (id) => {
+
+    console.log('id',id);
+    
+    const updatedCart = cartItems.map(item => {
+      if (item._id === id && item.quantity > 1) {
+        return { ...item, quantity: item.quantity - 1 };
+      }
+      return item;
+    });
+    setCartItems(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  };
+
 
   const handleStateChange = (e) => {
     const stateId = e.target.value;
@@ -108,7 +134,7 @@ useEffect(() => {
 
   // تابع حذف یک آیتم
   const removeItem = (id) => {
-    const updated = cartItems.filter(item => item.id !== id);
+    const updated = cartItems.filter(item => item._id !== id);
     setCartItems(updated);
     localStorage.setItem('cart', JSON.stringify(updated));
   };
@@ -120,7 +146,8 @@ useEffect(() => {
   };
 
   // محاسبه جمع‌ها
-  const subtotal = useMemo(() => cartItems.reduce((sum, item) => sum + item.price, 0), [cartItems]);
+  const subtotal = useMemo(() => cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0), [cartItems]);
+
   const shipping = cartItems.length > 0 ? 50000 : 0;
   const discount = couponApplied ? subtotal * 0.1 : 0;
   const total = subtotal + shipping - discount;
@@ -215,7 +242,7 @@ useEffect(() => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">نام <span className="text-red-500">*</span></label>
+                      <label htmlFor="firstName" className="block  text-sm font-medium text-gray-700 mb-1">نام <span className="text-red-500">*</span></label>
                       <input
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -330,8 +357,8 @@ useEffect(() => {
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                       placeholder="xxxxxxxxxx"
                       required
-                       pattern="[0-9]{10}"
-                       inputMode='numeric'
+                      pattern="[0-9]{10}"
+                      inputMode='numeric'
                     />
                   </div>
 
@@ -441,10 +468,22 @@ useEffect(() => {
                       <h3 className="text-sm font-medium text-gray-900">{item.name}</h3>
                       <p className="text-sm text-gray-500 mt-1">تعداد: {item.quantity}</p>
                       <p className="text-sm text-gray-500 mt-1">قیمت: {item.price.toLocaleString('fa-ir')} تومان</p>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => decreaseQuantity(item._id)}
+                          className="px-2 py-1 bg-gray-200 rounded"
+                        >−</button>
+                        <span className="mx-2">{item.quantity}</span>
+                        <button
+                          onClick={() => increaseQuantity(item._id)}
+                          className="px-2 py-1 bg-gray-200 rounded"
+                        >+</button>
+                      </div>
+
                     </div>
                     {/* دکمه حذف */}
                     <button
-                      onClick={() => removeItem(item.id)}
+                      onClick={() => removeItem(item._id)}
                       className="text-red-500 hover:text-red-700 text-sm"
                     >
                       <FaTrashAlt />

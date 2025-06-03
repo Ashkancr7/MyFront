@@ -2,8 +2,22 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar";
 import { FiShoppingCart, FiHeart, FiShare2, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useCart } from "../../context/CartContext";
+  import { toast, ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetail = () => {
+ const showToast = () => {
+    toast.success('به سبد خرید اضافه شد!', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'colored',
+    });
+  };
     const location = useLocation();
     const navigate = useNavigate();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -11,6 +25,8 @@ const ProductDetail = () => {
     const [selectedSize, setSelectedSize] = useState(1);
     const [quantity, setQuantity] = useState(1);
     const [isWishlist, setIsWishlist] = useState(false);
+    const { addToCart } = useCart();
+
 
     // داده‌های پیش‌فرض
     const defaultProduct = {
@@ -68,7 +84,7 @@ const ProductDetail = () => {
                             {/* تصویر اصلی */}
                             <div className="aspect-w-1 aspect-h-1 w-full h-96 md:h-[500px]">
                                 <img
-                                    src={product.image[currentImageIndex]}
+                                    src={product.image}
                                     alt={product.title}
                                     className="w-full h-full object-contain transition-opacity duration-300"
                                     onError={(e) => {
@@ -96,7 +112,7 @@ const ProductDetail = () => {
                             )}
 
                             {/* تصاویر کوچک */}
-                            {product.image.length > 1 && (
+                            {/* {product.image.length > 1 && (
                                 <div className="flex p-4 space-x-2 overflow-x-auto">
                                     {product.image.map((img, index) => (
                                         <button
@@ -115,14 +131,14 @@ const ProductDetail = () => {
                                         </button>
                                     ))}
                                 </div>
-                            )}
+                            )} */}
                         </div>
                     </div>
 
                     {/* بخش اطلاعات محصول */}
                     <div className="lg:w-1/2">
                         <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 h-full">
-                            <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.title}</h1>
+                            <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
 
                             <div className="flex items-center mb-6">
                                 <div className="flex text-yellow-400 mr-2">
@@ -210,7 +226,14 @@ const ProductDetail = () => {
 
                             {/* دکمه‌های اقدام */}
                             <div className="flex flex-col sm:flex-row gap-3">
-                                <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center transition-colors">
+                                <button
+                                    onClick={() =>{ addToCart({
+                                        ...product,
+                                        quantity,
+                                        selectedColor: product.colors[selectedColor],
+                                        selectedSize: product.sizes[selectedSize]
+                                    });showToast()}}
+                                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center transition-colors">
                                     <FiShoppingCart className="ml-2" />
                                     افزودن به سبد خرید
                                 </button>
@@ -252,6 +275,7 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
+             <ToastContainer />
         </div>
     );
 };

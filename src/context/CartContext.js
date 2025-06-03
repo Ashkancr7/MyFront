@@ -59,5 +59,5 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-// یک hook سفارشی برای دسترسی راحت به context
+
 export const useCart = () => useContext(CartContext);

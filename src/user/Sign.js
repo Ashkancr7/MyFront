@@ -100,7 +100,7 @@ function Sign() {
             confirmButtonText: 'صفحه ورود',
             background: '#f9f9f9',
             color: '#333',
-            width: isMobile ? '90%' : '400px',
+            width: isMobile ? '90%' : '200px',
             customClass: {
               popup: 'my-swal-popup-mobile',
             },

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 import { FiFilter, FiHeart, FiShoppingCart, FiStar, FiX, FiChevronDown } from 'react-icons/fi';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import { useCart } from "../context/CartContext";
 
@@ -39,16 +40,22 @@ const ProductCard = ({ product }) => {
         </span>
 
         <div className="flex justify-center items-center mt-2 gap-2">
+           <Link 
+                  key={product.id} 
+                  to="/product" 
+                  state={{ product }} // ارسال اطلاعات محصول از طریق state
+                >
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              addToCart(product);
-            }}
+            // onClick={(e) => {
+            //   e.stopPropagation();
+            //   addToCart(product);
+            // }}
             className="text-gray-600 ml-10 hover:text-blue-600 text-base sm:text-lg"
             title="افزودن به سبد خرید"
           >
             <FiShoppingCart />
           </button>
+          </Link>
           <span className="text-blue-600 font-bold text-[10px] sm:text-xs md:text-sm">
             {product.price ? `${product.price.toLocaleString("fa-IR")} تومان` : "ناموجود"}
           </span>
