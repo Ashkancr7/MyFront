@@ -35,9 +35,9 @@ const ProductCard = ({ product }) => {
           {product.name}
         </h3>
 
-        <span className="text-gray-700 text-[10px] sm:text-xs md:text-sm text-center break-words">
+        {/* <span className="text-gray-700 text-[10px] sm:text-xs md:text-sm text-center break-words">
           {product.description.toLocaleString("fa-IR")}
-        </span>
+        </span> */}
 
         <div className="flex justify-center items-center mt-2 gap-2">
            <Link 

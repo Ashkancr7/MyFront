@@ -3,21 +3,21 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar";
 import { FiShoppingCart, FiHeart, FiShare2, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useCart } from "../../context/CartContext";
-  import { toast, ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetail = () => {
- const showToast = () => {
-    toast.success('به سبد خرید اضافه شد!', {
-      position: 'top-center',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: 'colored',
-    });
-  };
+    const showToast = () => {
+        toast.success('به سبد خرید اضافه شد!', {
+            position: 'top-center',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: 'colored',
+        });
+    };
     const location = useLocation();
     const navigate = useNavigate();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -82,11 +82,11 @@ const ProductDetail = () => {
                     <div className="lg:w-1/2">
                         <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden group">
                             {/* تصویر اصلی */}
-                            <div className="aspect-w-1 aspect-h-1 w-full h-96 md:h-[500px]">
+                            <div className=" flex items-center justify-center w-full h-96 md:h-[500px]">
                                 <img
                                     src={product.image}
                                     alt={product.title}
-                                    className="w-full h-full object-contain transition-opacity duration-300"
+                                    className="w-64 h-64 object-contain transition-opacity duration-300"
                                     onError={(e) => {
                                         e.target.src = 'https://via.placeholder.com/800x600?text=تصویر+موجود+نیست';
                                     }}
@@ -171,16 +171,27 @@ const ProductDetail = () => {
                             {/* انتخاب رنگ */}
                             <div className="mb-6">
                                 <h3 className="text-sm font-medium text-gray-900 mb-2">رنگ:</h3>
-                                <div className="flex space-x-2">
+                                <div className="flex ">
                                     {product.colors.map((color, index) => (
                                         <button
                                             key={index}
                                             onClick={() => setSelectedColor(index)}
-                                            className={`w-10 h-10 rounded-full border-2 ${selectedColor === index ? 'border-blue-500' : 'border-gray-200'}`}
+                                            className={`w-8 h-8 rounded-full border-2 ${selectedColor === index ? 'border-blue-500' : 'border-gray-200'}`}
                                             style={{
-                                                backgroundColor: color === "مشکی" ? '#000' :
+                                                backgroundColor: color === "سیاه" ? '#000' :
                                                     color === "سفید" ? '#fff' :
-                                                        color === "نقره‌ای" ? '#c0c0c0' : '#f3f4f6'
+                                                    color === "قرمز" ? 'red' :
+                                                    color === "آبی" ? 'blue' :
+                                                    color === "زرد" ? 'yellow':
+                                                    color === "سبز" ? 'green' :
+                                                    color === "نارنجی" ? 'orange' :
+                                                    color === "بنفش" ? 'purple' : ""
+
+
+
+
+                                                       
+                                                        
                                             }}
                                             title={color}
                                         />
@@ -227,12 +238,14 @@ const ProductDetail = () => {
                             {/* دکمه‌های اقدام */}
                             <div className="flex flex-col sm:flex-row gap-3">
                                 <button
-                                    onClick={() =>{ addToCart({
-                                        ...product,
-                                        quantity,
-                                        selectedColor: product.colors[selectedColor],
-                                        selectedSize: product.sizes[selectedSize]
-                                    });showToast()}}
+                                    onClick={() => {
+                                        addToCart({
+                                            ...product,
+                                            quantity,
+                                            selectedColor: product.colors[selectedColor],
+                                            selectedSize: product.sizes[selectedSize]
+                                        }); showToast()
+                                    }}
                                     className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center transition-colors">
                                     <FiShoppingCart className="ml-2" />
                                     افزودن به سبد خرید
@@ -275,7 +288,7 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
-             <ToastContainer />
+            <ToastContainer />
         </div>
     );
 };
