@@ -102,8 +102,8 @@ const Checkout = () => {
 
   const decreaseQuantity = (id) => {
 
-    console.log('id',id);
-    
+    console.log('id', id);
+
     const updatedCart = cartItems.map(item => {
       if (item._id === id && item.quantity > 1) {
         return { ...item, quantity: item.quantity - 1 };
@@ -181,7 +181,26 @@ const Checkout = () => {
       const res = await fetch('https://mystore-pbfe.onrender.com/api/payment/pay', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount }), // ارسال مبلغ
+        body: JSON.stringify({
+          amount,
+          items: cartItems.map(item => ({
+            productId: item._id,
+            quantity: item.quantity,
+          })),
+          address: {
+            receiverName: name + ' ' + lname,
+            receiverPhone: phone,
+            provinceId: selectedStateId,
+            provinceName: province,
+            cityName: selectedCity,
+            address,
+            postCode,
+          },
+          couponCode: couponApplied ? couponCode : null,
+          shippingCost: shipping,
+          discountAmount: discount,
+        })
+
       });
 
       const data = await res.json();
