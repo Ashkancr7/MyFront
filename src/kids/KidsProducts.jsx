@@ -4,6 +4,8 @@ import { FiFilter, FiHeart, FiShoppingCart, FiStar, FiX, FiChevronDown } from 'r
 import { FaHeart } from 'react-icons/fa';
 import axios from 'axios';
 import Navbar from '../Navbar';
+import { Link } from "react-router-dom";
+
 import { useCart } from "../context/CartContext";
 const KidsProducts = () => {
     const [products, setProducts] = useState([]);
@@ -148,7 +150,7 @@ const KidsProducts = () => {
                             <div>
                                 <h4 className="font-medium mb-3">دسته‌بندی</h4>
                                 <div className="space-y-2">
-                                {['نوزادی', 'پسرانه', 'دخترانه', 'کفش', 'لباس شنا', 'اکسسوری'].map(cat => (
+                                    {['نوزادی', 'پسرانه', 'دخترانه', 'کفش', 'لباس شنا', 'اکسسوری'].map(cat => (
 
                                         <label key={cat} className="flex items-center gap-2">
                                             <input
@@ -316,8 +318,8 @@ const KidsProducts = () => {
                                                         key={size}
                                                         onClick={() => setFilters({ ...filters, size: filters.size === size ? '' : size })}
                                                         className={`px-3 py-1 border rounded-md text-sm ${filters.size === size
-                                                                ? 'bg-blue-600 text-white border-blue-600'
-                                                                : 'bg-white border-gray-300 hover:bg-gray-50'
+                                                            ? 'bg-blue-600 text-white border-blue-600'
+                                                            : 'bg-white border-gray-300 hover:bg-gray-50'
                                                             }`}
                                                     >
                                                         {size}
@@ -335,8 +337,8 @@ const KidsProducts = () => {
                                                         key={color}
                                                         onClick={() => setFilters({ ...filters, color: filters.color === color ? '' : color })}
                                                         className={`px-3 py-1 border rounded-md text-sm ${filters.color === color
-                                                                ? 'bg-blue-600 text-white border-blue-600'
-                                                                : 'bg-white border-gray-300 hover:bg-gray-50'
+                                                            ? 'bg-blue-600 text-white border-blue-600'
+                                                            : 'bg-white border-gray-300 hover:bg-gray-50'
                                                             }`}
                                                     >
                                                         {color}
@@ -406,7 +408,7 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
                 <img
                     src={product.image}
                     alt={product.name}
-                      className="w-full h-40 sm:h-56 object-cover rounded-t-lg"
+                    className="w-full h-40 sm:h-56 object-cover rounded-t-lg"
                 />
                 <button
                     onClick={(e) => onWishlistToggle(product.id, e)}
@@ -420,15 +422,17 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
                 <div className="text-gray-600 text-xs mt-1">{product.category}</div>
                 <div className="flex items-center justify-between mt-2">
                     <span className="text-blue-600 font-bold text-sm">{product.price.toLocaleString("fa-IR")} تومان</span>
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            onAddToCart(product);
-                        }}
-                        className="text-gray-600 hover:text-blue-600"
+                    <Link
+                        key={product.id}
+                        to="/product"
+                        state={{ product }}
+                        onClick={(e) => e.stopPropagation()} // جلوگیری از تریگر شدن onClick parent
+                        className="text-gray-600 hover:text-blue-600 text-xl"
                     >
                         <FiShoppingCart />
-                    </button>
+
+
+                    </Link>
                 </div>
             </div>
         </div>

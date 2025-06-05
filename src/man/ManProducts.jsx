@@ -5,6 +5,8 @@ import { FaHeart } from 'react-icons/fa';
 import axios from 'axios';
 import Navbar from '../Navbar';
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
+
 const ManProducts = () => {
   const [products, setProducts] = useState([]);
   // const { addToCart } = useContext(CartContext);
@@ -419,15 +421,17 @@ const ProductCard = ({ product, isWishlisted, onWishlistToggle, onAddToCart, onC
         <div className="text-gray-600 text-xs mt-1">{product.category}</div>
         <div className="flex items-center justify-between mt-2">
           <span className="text-blue-600 font-bold text-sm">{product.price.toLocaleString("fa-IR")} تومان</span>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onAddToCart(product);
-            }}
-            className="text-gray-600 hover:text-blue-600"
+          <Link
+            key={product.id}
+            to="/product"
+            state={{ product }}
+            onClick={(e) => e.stopPropagation()} // جلوگیری از تریگر شدن onClick parent
+            className="text-gray-600 hover:text-blue-600 text-xl"
           >
             <FiShoppingCart />
-          </button>
+
+
+          </Link>
         </div>
       </div>
     </div>
