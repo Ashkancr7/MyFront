@@ -178,6 +178,7 @@ const Checkout = () => {
     const amount = total; // اینو می‌تونی از ورودی کاربر هم بگیری
 
     try {
+
       const res = await fetch('https://mystore-pbfe.onrender.com/api/payment/pay', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
