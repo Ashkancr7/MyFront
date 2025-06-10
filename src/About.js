@@ -25,7 +25,7 @@ const About = () => {
         <div className="absolute inset-0 bg-black opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">درباره ما</h1>
-          <p className="text-xl max-w-3xl mx-auto">داستان ما، ارزش‌ها و تیم پشت فروشگاه اینترنتی شما</p>
+          {/* <p className="text-xl max-w-3xl mx-auto">داستان ما، ارزش‌ها و تیم پشت فروشگاه اینترنتی شما</p> */}
         </div>
       </div>
 

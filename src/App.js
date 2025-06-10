@@ -17,6 +17,7 @@ import KidsProducts from "./kids/KidsProducts";
 import ManProducts from "./man/ManProducts";
 import WomanProducts from "./woman/WomanProducts";
 import DiscountProduct from "./discount/DiscountProduct";
+import Profile from "./Profile/Profile";
 
 function App() {
   return (
@@ -38,6 +39,8 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/PayButton" element={<PayButton />} />
           <Route path="/VerifyPage" element={<VerifyPage />} />
+          <Route path="/Profile" element={<Profile />} />
+
 
 
         </Routes>

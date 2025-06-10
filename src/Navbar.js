@@ -89,7 +89,7 @@ const Navbar = () => {
             <DropdownMenu categories={womenCategories} title="زنانه" />
             <a href="/kidsproducts" className="hover:text-gray-900">بچگانه</a>
             <a href="/about" className="hover:text-gray-900  lg:text-sm">درباره ما</a>
-            <a href="/PayButton" className="hover:text-gray-900  lg:text-sm">تماس با ما</a>
+            <a href="/ContactUs" className="hover:text-gray-900  lg:text-sm">تماس با ما</a>
           </div>
 
 
@@ -119,7 +119,7 @@ const Navbar = () => {
               </button>
 
               <button
-                onClick={() => { user ? logout() : navigate('/login') }}
+                onClick={() => { user ? navigate('/Profile') : navigate('/login') }}
                 className="flex items-center border border-gray-300 rounded-md hover:bg-gray-100 px-3 py-2 text-sm text-gray-700 gap-2"
               >
                 {user ? (

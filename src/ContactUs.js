@@ -6,20 +6,20 @@ const ContactUs = () => {
     {
       icon: <FiMapPin className="text-2xl text-blue-600" />,
       title: "آدرس",
-      content: "تهران، خیابان آزادی، کوچه شهید فلانی، پلاک ۱۲۳، طبقه دوم",
+      content: "کردستان خیابان پاسداران دانشگاه کردستان مرکز رشد واحد11 ",
       link: "https://maps.google.com"
     },
     {
       icon: <FiPhone className="text-2xl text-blue-600" />,
       title: "تلفن",
-      content: "۰۲۱-۱۲۳۴۵۶۷۸",
-      link: "tel:02112345678"
+      content: "09910616048",
+      link: "tel:09910616048"
     },
     {
       icon: <FiMail className="text-2xl text-blue-600" />,
       title: "ایمیل",
-      content: "info@example.com",
-      link: "mailto:info@example.com"
+      content: "ashkan.eng.asadi@gmail.com",
+      link: "ashkan.eng.asadi@gmail.com"
     },
     {
       icon: <FiClock className="text-2xl text-blue-600" />,
@@ -31,7 +31,7 @@ const ContactUs = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      
+
       {/* هیرو بخش */}
       <div className="relative bg-blue-600 text-white py-20">
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -46,7 +46,7 @@ const ContactUs = () => {
           {/* اطلاعات تماس */}
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">راه‌های ارتباطی</h2>
-            
+
             <div className="space-y-6">
               {contactMethods.map((method, index) => (
                 <div key={index} className="flex items-start">
@@ -56,9 +56,9 @@ const ContactUs = () => {
                   <div>
                     <h3 className="text-lg font-medium text-gray-900 mb-1">{method.title}</h3>
                     {method.link ? (
-                      <a 
-                        href={method.link} 
-                        target="_blank" 
+                      <a
+                        href={method.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-600 hover:text-blue-600 transition-colors"
                       >
@@ -76,15 +76,17 @@ const ContactUs = () => {
             <div className="mt-12">
               <h3 className="text-xl font-medium text-gray-900 mb-4">ما روی نقشه</h3>
               <div className="bg-gray-200 h-64 rounded-lg overflow-hidden">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.837855020857!2d51.3882773152681!3d35.68919798018986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQxJzIxLjEiTiA1McKwMjMnMjMuNiJF!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
-                  width="100%" 
-                  height="100%" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1241.3430464991184!2d46.99482650562876!3d35.279732978435646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1749542881279!5m2!1sen!2s"
+                  width="100%"
+                  height="450"
                   style={{ border: 0 }}
-                  allowFullScreen="" 
+                  allowFullScreen
                   loading="lazy"
-                  title="نقشه محل شرکت"
-                ></iframe>
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="نقشه محل مورد نظر"
+                />
+
               </div>
             </div>
           </div>
@@ -93,7 +95,7 @@ const ContactUs = () => {
           <div className="bg-white rounded-xl shadow-sm p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">پیام به ما</h2>
             <p className="text-gray-600 mb-8">فرم زیر را پر کنید تا در اسرع وقت با شما تماس بگیریم</p>
-            
+
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -185,7 +187,7 @@ const ContactUs = () => {
       <div className="bg-gray-100 py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">سوالات متداول</h2>
-          
+
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               {
@@ -210,7 +212,7 @@ const ContactUs = () => {
         </div>
       </div>
 
- 
+
     </div>
   );
 };
