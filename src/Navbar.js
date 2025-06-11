@@ -180,10 +180,10 @@ const Navbar = () => {
                 <>
                   <span className="block px-3 py-2 text-sm text-gray-700">{user.nam + " " + user.lname || "کاربر"}</span>
                   <button
-                    onClick={logout}
-                    className="block w-full text-right px-3 py-2 text-red-600 hover:bg-gray-100 rounded"
+                    onClick={()=>navigate('/Profile')}
+                    className="block w-full  px-3 py-2 text-gray-700 hover:bg-gray-100 rounded"
                   >
-                    خروج
+                    پروفایل
                   </button>
                 </>
               ) : (

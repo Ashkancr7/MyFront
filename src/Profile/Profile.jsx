@@ -17,17 +17,18 @@ const Profile = () => {
 
   // Load user from localStorage
   useEffect(() => {
-    const stored = localStorage.getItem("checkoutUserData");
+    const stored = localStorage.getItem("userInfo");
     if (stored) {
       const parsed = JSON.parse(stored);
-      const fullName = `${parsed.name} ${parsed.lname}`;
+      const fullName = `${parsed.nam} ${parsed.lname}`;
       const updatedUser = {
         name: fullName,
         email: parsed.email || "",
         phone: parsed.phone || "",
         address: parsed.address || "",
         bio: "کاربر لاگین‌شده عزیز 👋",
-        avatar: "https://i.pravatar.cc/150?u=" + parsed.email,
+            avatar: "https://i.pravatar.cc/150?u=107",
+
       };
       setUser(updatedUser);
       setFormData(updatedUser);
@@ -66,7 +67,6 @@ const Profile = () => {
               <p className="text-indigo-500 mt-1">کاربر ثبت‌نام‌شده</p>
 
               <div className="mt-4 space-y-2 text-gray-600 text-sm">
-                <p className="flex items-center gap-2"><FaEnvelope className="text-indigo-400" /> {user.email}</p>
                 <p className="flex items-center gap-2"><FaPhone className="text-indigo-400" /> {user.phone}</p>
                 <p className="flex items-center gap-2"><FaMapMarkerAlt className="text-indigo-400" /> {user.address}</p>
                 <p className="flex items-start gap-2"><FaInfoCircle className="text-indigo-400 mt-1" /> <span>{user.bio}</span></p>

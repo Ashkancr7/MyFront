@@ -91,6 +91,13 @@ function Sign() {
         const data = await response.json();
 
         if (response.ok) {
+          localStorage.setItem('userInfo', JSON.stringify({
+            nam: formData.firstName,
+            lname: formData.lastName,
+            address: formData.address,
+            phone: formData.phone,
+            
+          }));
           const result = await Swal.fire({
             title: 'ثبت نام موفق!',
             text: `خوش آمدید`,
