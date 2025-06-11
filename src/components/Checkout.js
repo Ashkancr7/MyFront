@@ -500,6 +500,10 @@ const Checkout = () => {
                     <div className="mr-4 flex-1">
                       <h3 className="text-sm font-medium text-gray-900">{item.name}</h3>
                       <p className="text-sm text-gray-500 mt-1">تعداد: {item.quantity}</p>
+                      <p className="text-sm text-gray-500 mt-1">رنگ: {item.selectedColor}</p>
+                      <p className="text-sm text-gray-500 mt-1">سایز: {item.selectedSize}</p>
+
+
                       <p className="text-sm text-gray-500 mt-1">قیمت: {item.price.toLocaleString('fa-ir')} تومان</p>
                       <div className="flex items-center gap-2">
                         <button
