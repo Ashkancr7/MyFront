@@ -175,23 +175,17 @@ const ProductDetail = () => {
                                     {product.colors.map((color, index) => (
                                         <button
                                             key={index}
-                                            onClick={() => setSelectedColor(index)}
-                                            className={`w-8 h-8 rounded-full border-2 ${selectedColor === index ? 'border-blue-500' : 'border-gray-200'}`}
+                                            onClick={() => setSelectedColor(color)}
+                                            className={`w-8 h-8 rounded-full border-2 ${selectedColor === color ? 'border-blue-500' : 'border-gray-200'}`}
                                             style={{
                                                 backgroundColor: color === "سیاه" ? '#000' :
                                                     color === "سفید" ? '#fff' :
-                                                    color === "قرمز" ? 'red' :
-                                                    color === "آبی" ? 'blue' :
-                                                    color === "زرد" ? 'yellow':
-                                                    color === "سبز" ? 'green' :
-                                                    color === "نارنجی" ? 'orange' :
-                                                    color === "بنفش" ? 'purple' : ""
-
-
-
-
-                                                       
-                                                        
+                                                        color === "قرمز" ? 'red' :
+                                                            color === "آبی" ? 'blue' :
+                                                                color === "زرد" ? 'yellow' :
+                                                                    color === "سبز" ? 'green' :
+                                                                        color === "نارنجی" ? 'orange' :
+                                                                            color === "بنفش" ? 'purple' : ""
                                             }}
                                             title={color}
                                         />
@@ -206,8 +200,8 @@ const ProductDetail = () => {
                                     {product.sizes.map((size, index) => (
                                         <button
                                             key={index}
-                                            onClick={() => setSelectedSize(index)}
-                                            className={`px-4 py-2 rounded-md ${selectedSize === index ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
+                                            onClick={() => setSelectedSize(size)}
+                                            className={`px-4 py-2 rounded-md ${selectedSize === size ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
                                         >
                                             {size}
                                         </button>
@@ -242,9 +236,10 @@ const ProductDetail = () => {
                                         addToCart({
                                             ...product,
                                             quantity,
-                                            selectedColor: product.colors[selectedColor],
-                                            selectedSize: product.sizes[selectedSize]
-                                        }); showToast()
+                                            selectedColor: selectedColor,
+                                            selectedSize: selectedSize,
+                                        });
+                                        showToast()
                                     }}
                                     className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center transition-colors">
                                     <FiShoppingCart className="ml-2" />

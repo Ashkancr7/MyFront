@@ -174,54 +174,59 @@ const Checkout = () => {
   //   clearCart();
   //   navigate('/thank-you');
   // };
- const handlePayment = async () => {
-  const token = localStorage.getItem('token');
-  const amount = total;
-  console.log('token', token);
-  
+  const handlePayment = async () => {
+    const token = localStorage.getItem('token');
+    const amount = total;
+    console.log('token', token);
+    console.log('item', cartItems)
 
-  try {
-    const res = await fetch('https://mystore-pbfe.onrender.com/api/payment/pay', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-         'Authorization': `Bearer ${token}` // در صورت نیاز
-      },
-      body: JSON.stringify({
-        amount,
-        items: cartItems.map(item => ({
-          productId: item._id,
-          quantity: item.quantity,
-        })),
-        address: {
-          receiverName: name + ' ' + lname,
-          receiverPhone: phone,
-          provinceId: selectedStateId,
-          provinceName: province,
-          cityName: selectedCity,
-          address,
-          postCode,
+
+    try {
+      const res = await fetch('https://mystore-pbfe.onrender.com/api/payment/pay', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` // در صورت نیاز
         },
-        couponCode: couponApplied ? couponCode : null,
-        shippingCost: shipping,
-        discountAmount: discount,
-      })
-    });
+        body: JSON.stringify({
+          amount,
+          items: cartItems.map(item => ({
+            productId: item._id,
+            quantity: item.quantity,
+            selectedColor: item.selectedColor,
+            selectedSize: item.selectedSize
+          })),
+          address: {
+            receiverName: name + ' ' + lname,
+            receiverPhone: phone,
+            provinceId: selectedStateId,
+            provinceName: province,
+            cityName: selectedCity,
+            address,
+            postCode,
+          },
+          couponCode: couponApplied ? couponCode : null,
+          shippingCost: shipping,
+          discountAmount: discount,
+        })
 
-    if (!res.ok) throw new Error('خطا در پاسخ از سرور');
 
-    const data = await res.json();
+      });
 
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert('خطا در دریافت لینک پرداخت');
+      if (!res.ok) throw new Error('خطا در پاسخ از سرور');
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('خطا در دریافت لینک پرداخت');
+      }
+    } catch (err) {
+      console.error('خطای ارتباط با سرور:', err);
+      alert('در ارتباط با سرور مشکلی پیش آمده. لطفاً بعداً تلاش کنید.');
     }
-  } catch (err) {
-    console.error('خطای ارتباط با سرور:', err);
-    alert('در ارتباط با سرور مشکلی پیش آمده. لطفاً بعداً تلاش کنید.');
-  }
-};
+  };
 
 
 
