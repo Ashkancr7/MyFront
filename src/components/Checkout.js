@@ -233,10 +233,10 @@ const Checkout = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
       <Navbar />
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto ">
         {/* مسیر خرید */}
         <div className="flex items-center mb-8">
-          <div className="flex items-center text-gray-500">
+          <div className="flex items-center text-gray-500 mt-5">
             <FiShoppingCart className="text-blue-600 text-2xl mr-2" />
             <span className="mx-2">/</span>
             <span className={activeTab === 'delivery' ? 'text-blue-600 font-medium' : ''}>اطلاعات تحویل</span>
