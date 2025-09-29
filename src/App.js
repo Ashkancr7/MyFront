@@ -18,6 +18,8 @@ import ManProducts from "./man/ManProducts";
 import WomanProducts from "./woman/WomanProducts";
 import DiscountProduct from "./discount/DiscountProduct";
 import Profile from "./Profile/Profile";
+import LaptopList from "./laptopShow/LaptopList";
+import LaptopDetail from "./laptopShow/LaptopDetail";
 
 function App() {
   return (
@@ -40,6 +42,10 @@ function App() {
           <Route path="/PayButton" element={<PayButton />} />
           <Route path="/VerifyPage" element={<VerifyPage />} />
           <Route path="/Profile" element={<Profile />} />
+          <Route path="/LaptopList" element={<LaptopList />} />
+          <Route path="//laptop/:id" element={<LaptopDetail />} />
+
+
 
 
 

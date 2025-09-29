@@ -6,14 +6,12 @@ import NewProduct from '../src/product/NewProduct';
 import ProductListMan from '../src/product/ProductListMan';
 import ProductListChaild from '../src/product/ProductListChaild';
 import BannerSlider from './BannerSlider/BannerSlider';
-
-
+import LaptopList from './laptopShow/LaptopList';
+import LaptopDetail from './laptopShow/LaptopDetail';
 // import { TailSpin, DNA, ThreeCircles } from 'react-loader-spinner';
-
-
-
 import Navbar from './Navbar';
 import Footer from '../src/footer/Footer'
+import NavLaptop from './NavLaptop';
 
 
 
@@ -40,13 +38,15 @@ function Home() {
 
   return (
     <div className="App max-w-screen-xl mx-auto px-4 text-right">
-      <Navbar />
-      <BannerSlider />
+      {/* <Navbar /> */}
+      <NavLaptop />
+      <LaptopList />
+      {/* <BannerSlider />
       <NewProduct />
       <ProductList />
       <ProductListMan />
       <ProductListChaild />
-      <Footer />
+      <Footer /> */}
 
 
 
