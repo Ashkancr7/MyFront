@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/logo.png" />
-    <link rel="stylesheet" href="widget.css">
+    <!-- <link rel="stylesheet" href="widgett.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -26,6 +26,11 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>سایت ما</title>
+    <script>
+      window.DEEPCHAT_CONFIG = {
+        siteKey: "ba2b0cb1-1678-4256-9c24-c29e3f153a3a"
+      };
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -33,5 +38,5 @@
     <div id="widget-root"></div>
 
   </body>
-  <script src="widget.js"></script>
+ <script src="https://widget.deepchatai.ir/widgetv1.1.js"></script>
 </html>

@@ -1,236 +1,83 @@
+// src/components/LaptopList.jsx
+import React from "react";
 import { Link } from "react-router-dom";
+// ایمپورت دیتا از فایل جدید
+import { laptops } from "../data"; // مطمئن شوید مسیر درست است
 
-import aks1 from "../assets/laptop/1.png";
-import aks2 from "../assets/laptop/2.png";
-import aks3 from "../assets/laptop/3.webp";
-import aks4 from "../assets/laptop/4.webp";
-import aks5 from "../assets/laptop/5.jpg";
-import aks6 from "../assets/laptop/6.webp";
-import aks7 from "../assets/laptop/7.webp";
-import aks8 from "../assets/laptop/8.webp";
-import aks9 from "../assets/laptop/9.jpg";
-import aks10 from "../assets/laptop/10.jpg";
-import aks11 from "../assets/laptop/11.jpg";
-import aks12 from "../assets/laptop/12.webp";
-import aks13 from "../assets/laptop/13.webp";
-import aks14 from "../assets/laptop/14.webp";
-import aks15 from "../assets/laptop/15.webp";
-import aks16 from "../assets/laptop/16.webp";
-
-const laptops = [
-  {
-    id: 1,
-    name: "ASUS ExpertBook X360",
-    cpu: "i5-1135G7",
-    ram: "8G",
-    storage: "256G-SSD",
-    gpu: "Intel IRIS Xe",
-    battery: "10 ساعت",
-    price: "45,000,000 تومان",
-    image: aks1,
-  },
-  {
-    id: 2,
-    name: "Dell PRECISION 7520",
-    cpu: "I7-7820HQ",
-    ram: "8GB",
-    storage: "256GB SSD",
-    gpu: "Intel HD TOUCH",
-    battery: "20 ساعت",
-    price: "65,000,000 تومان",
-    image: aks2,
-  },
-  {
-    id: 3,
-    name: "ASUS ZenBook 13UX",
-    cpu: "i7-8565U",
-    ram: "8G",
-    storage: "512GB-SSD",
-    gpu: "2G-MX150",
-    battery: "12 ساعت",
-    price: "80,000,000 تومان",
-    image: aks3,
-  },
-  {
-    id: 4,
-    name: "DELL Latitude 5300",
-    cpu: "I7-8665U",
-    ram: "16G",
-    storage: "256GB SSD",
-    gpu: "INTEL UHD",
-    battery: "10 ساعت",
-    price: "45,000,000 تومان",
-    image: aks4,
-  },
-  {
-    id: 5,
-    name: "HP EliteBook 745 G6",
-    cpu: "R5-PRO3500U",
-    ram: "8G",
-    storage: "256G-SSD",
-    gpu: "2G-VEGA8",
-    battery: "20 ساعت",
-    price: "65,000,000 تومان",
-    image: aks5,
-  },
-  {
-    id: 6,
-    name: "HP ENVY Laptop",
-    cpu: "i9-13900H",
-    ram: "16G",
-    storage: "1TB-SSD",
-    gpu: "8G-RTX4060",
-    battery: "12 ساعت",
-    price: "80,000,000 تومان",
-    image: aks6,
-  },
-  {
-    id: 7,
-    name: "HP ENVY Laptop 17",
-    cpu: "Ultra7-155U",
-    ram: "16G",
-    storage: "1TB-SSD",
-    gpu: "4G-RTX3050",
-    battery: "10 ساعت",
-    price: "45,000,000 تومان",
-    image: aks7,
-  },
-  {
-    id: 8,
-    name: "HP Omen 16",
-    cpu: "i5-13500HX",
-    ram: "16G",
-    storage: "512G-SSD",
-    gpu: "8G-RTX4060",
-    battery: "20 ساعت",
-    price: "65,000,000 تومان",
-    image: aks8,
-  },
-  {
-    id: 9,
-    name: "HP Probook 645 G4",
-    cpu: "R7 PRO-2700U",
-    ram: "16G",
-    storage: "256G SSD",
-    gpu: "1G-vega",
-    battery: "12 ساعت",
-    price: "80,000,000 تومان",
-    image: aks9,
-  },
-  {
-    id: 10,
-    name: "HP VICTUS 16",
-    cpu: "i7-13620H",
-    ram: "16G",
-    storage: "512G-SSD",
-    gpu: "8G-RTX4060",
-    battery: "10 ساعت",
-    price: "45,000,000 تومان",
-    image: aks10,
-  },
-  {
-    id: 11,
-    name: "Lenovo X280",
-    cpu: "I5-8350U",
-    ram: "8G",
-    storage: "256G-SSD",
-    gpu: "INTEL UHD 620",
-    battery: "20 ساعت",
-    price: "65,000,000 تومان",
-    image: aks11,
-  },
-  {
-    id: 12,
-    name: "MICROSOFT SURFACE LAPTOP 3",
-    cpu: "i5-1035G7",
-    ram: "8G",
-    storage: "256G-SSDD",
-    gpu: "Intel Iris Plus",
-    battery: "12 ساعت",
-    price: "80,000,000 تومان",
-    image: aks12,
-  },
-  {
-    id: 13,
-    name: "MICROSOFT SURFACE LAPTOP 4",
-    cpu: "i5-1145G7",
-    ram: "8G",
-    storage: "256G-SSD",
-    gpu: "Intel Iris Xe",
-    battery: "12 ساعت",
-    price: "80,000,000 تومان",
-    image: aks13,
-  },
-  {
-    id: 14,
-    name: "MICROSOFT SURFACE LAPTOP 4",
-    cpu: "i7-1185G7",
-    ram: "16G",
-    storage: "256GB SSD",
-    gpu: "INTEL IRIS Xe",
-    battery: "10 ساعت",
-    price: "45,000,000 تومان",
-    image: aks14,
-  },
-  {
-    id: 15,
-    name: "Samsung 930 MBE",
-    cpu: "i7-8565U",
-    ram: "16G",
-    storage: "256G SSD",
-    gpu: "Intel UHD",
-    battery: "20 ساعت",
-    price: "65,000,000 تومان",
-    image: aks15,
-  },
-  {
-    id: 16,
-    name: "MICROSOFT SURFACE PRO 7 PLUS",
-    cpu: "i5-1135G7",
-    ram: "8G",
-    storage: "256G-SSDD",
-    gpu: "Intel Iris",
-    battery: "12 ساعت",
-    price: "80,000,000 تومان",
-    image: aks16,
-  },
-];
-
-export default function LaptopList() {
+const LaptopCard = ({ laptop }) => {
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-6">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-10">
-        💻 لیست لپ‌تاپ‌ها
-      </h1>
+    <div className="group bg-white border border-gray-100 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+      <div className="absolute top-0 left-0 bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10">
+        موجود
+      </div>
 
-     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-  {laptops.map((laptop) => (
-    <div
-      key={laptop.id}
-      className="bg-white shadow rounded-xl p-3 flex flex-col justify-between h-full"
-    >
-      <div className="flex flex-col items-center">
+      <div className="w-full h-40 bg-gray-50 rounded-xl flex items-center justify-center mb-4 p-2 group-hover:bg-gray-100 transition-colors">
         <img
           src={laptop.image}
           alt={laptop.name}
-          className="w-full h-32 object-contain rounded-md"
+          className="max-h-full object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300"
+          loading="lazy"
         />
-        <h3 className="mt-2 text-sm font-medium text-center">{laptop.name}</h3>
-        <p className="bg-gradient-to-r from-emerald-500 to-green-700 bg-clip-text text-transparent font-bold text-sm">
-          {laptop.price} تومان
-        </p>
       </div>
 
-      <Link
-        to={`/laptop/${laptop.id}`}
-        className="mt-3 bg-blue-600 text-white text-xs sm:text-sm px-2 py-1 rounded-lg hover:bg-blue-700 transition text-center"
-      >
-        مشاهده جزئیات
-      </Link>
-    </div>
-  ))}
-</div>
+      <div className="flex flex-col flex-grow">
+        <h3 className="text-gray-800 font-bold text-sm sm:text-base line-clamp-1 mb-3" title={laptop.name}>
+          {laptop.name}
+        </h3>
 
+        <div className="flex flex-wrap gap-2 mb-4">
+          <span className="text-[10px] sm:text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md border border-gray-200">
+            {laptop.cpu}
+          </span>
+          <span className="text-[10px] sm:text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md border border-gray-200">
+            {laptop.ram}
+          </span>
+           <span className="text-[10px] sm:text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md border border-gray-200">
+            {laptop.gpu}
+          </span>
+        </div>
+      </div>
+
+      <div className="mt-auto border-t border-gray-100 pt-3">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-gray-500 text-xs">قیمت:</span>
+          {/* نمایش قیمت بدون تومان چون دیتای جدید واحد ندارد یا واحدش متفاوت است */}
+          <span className="text-emerald-600 font-extrabold text-sm sm:text-base">
+            {laptop.price}
+          </span>
+        </div>
+        
+        <Link
+          to={`/laptop/${laptop.id}`}
+          className="block w-full bg-blue-600 text-white text-center py-2.5 rounded-xl text-sm font-medium transition-colors hover:bg-blue-700 active:bg-blue-800 shadow-blue-200 shadow-lg"
+        >
+          مشاهده و خرید
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default function LaptopList() {
+  return (
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
+            <span className="block text-blue-600 text-lg font-semibold mb-2">فروشگاه لپ‌تاپ</span>
+            لیست جدیدترین محصولات 💻
+          </h1>
+          <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
+            لیست بروز شده لپ‌تاپ‌ها با مشخصات دقیق و قیمت‌های جدید.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+          {laptops.map((laptop) => (
+            <LaptopCard key={laptop.id} laptop={laptop} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
